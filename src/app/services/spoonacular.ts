@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class Spoonacular {
   private apiKey = '70759a4f7911402abcc53d3c51d3b759'; 
   private apiUrl1 = 'https://api.spoonacular.com/recipes/complexSearch';
-  private apiUrl2 ='https://api.spoonacular.com/recipes/{id}/information';
 
 
   constructor(private http: HttpClient) {}
@@ -21,6 +20,6 @@ export class Spoonacular {
   }
 //Method to fetch recipe details by ID.
 getRecipeDetails(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl2}/${id}/information?apiKey=${this.apiKey}`);
+    return this.http.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${this.apiKey}`);
   }
 }

@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import {IonCard ,IonCardTitle, IonCardContent, IonCardHeader ,IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Spoonacular } from '../services/spoonacular';
 import { ActivatedRoute } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.page.html',
   styleUrls: ['./recipe-details.page.scss'],
   standalone: true,
-  imports: [ IonCard ,IonCardTitle ,IonCardContent, IonCardHeader ,IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [ RouterLink ,IonCard ,IonCardTitle ,IonCardContent, IonCardHeader ,IonContent,
+     IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 
 

@@ -5,8 +5,6 @@ import {RouterLink} from '@angular/router';
 import { Spoonacular } from '../services/spoonacular';
 import { CommonModule } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -15,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent,
     IonButton, IonIcon, FormsModule, IonCardHeader,
     RouterLink, IonCard, IonSearchbar, CommonModule,
-IonCardTitle, IonCardContent
+IonCardTitle, IonCardContent,
   ],
 })
 export class HomePage {

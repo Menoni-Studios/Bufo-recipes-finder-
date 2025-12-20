@@ -38,13 +38,14 @@
 <!--Recipe cards-->
 <div *ngFor="let recipe of recipes">
     <ion-card>
-      <img [src]="recipe.image" alt="{{ recipe.title }}">
+      <img [src]="recipe?.image" alt="{{ recipe.title }}">
       <ion-card-header>
-        <ion-card-title>{{ recipe.title }}</ion-card-title>
+        <ion-card-title>{{ recipe?.title }}</ion-card-title>
       </ion-card-header>
+      <p>{{ recipe?.summary }}</p>
         <ion-card-content>
       <!-- <p>ID: {{ recipe.id }}</p> --> 
-        <ion-button fill="outline" [routerLink]="['/details', recipe.id]">
+        <ion-button fill="outline" [routerLink]="['/recipe-details', recipe.id]">
           Details
         </ion-button>
       </ion-card-content>   

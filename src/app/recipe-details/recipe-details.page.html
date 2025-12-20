@@ -6,15 +6,17 @@
 
 <ion-content [fullscreen]="true">
     <h2>Recipe Name</h2>
- <ion-card>
-    <img [src]="recipe.image" alt="{{ recipe.title }}">
+ <ion-card *ngIf="recipe">
+    <img [src]="recipe?.image" alt="{{ recipe.title }}">
+
     <ion-card-header>
       <ion-card-title>{{ recipe.title }}</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
       <h2>Ingredients</h2>
       <ul>
-        <li *ngFor="let ing of recipe.extendedIngredients">
+        <li *ngFor="let ing of recipe?.extendedIngredients">
           {{ ing.original }} 
           ({{ ing.measures.metric.amount }} {{ ing.measures.metric.unitLong }})
         </li>
@@ -29,3 +31,6 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ion-button routerLink="/home">🏠</ion-button>
+
