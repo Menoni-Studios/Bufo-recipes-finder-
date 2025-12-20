@@ -51,7 +51,7 @@ ion-button{
     --background: #f7f5f6;
 }
 ion-button:hover {
-  transform: scale(1.05);   /* slightly bigger */
+  transform: scale(1.1);   /* slightly bigger */
   transition: transform 0.2s ease-in-out; /* smooth animation */
 }
 

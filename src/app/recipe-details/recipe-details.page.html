@@ -1,20 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Recipe Details</ion-title>
+<ion-button slot="end" fill="solid" aria-label="Favorites" routerLink="/favourites">
+      <ion-icon slot="icon-only" name="heart"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="end" fill="solid" aria-label="Settings" routerLink="/settings">
+      <ion-icon slot="icon-only" name="settings"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <h2>Recipe Name</h2>
+
  <ion-card *ngIf="recipe">
     <img [src]="recipe?.image" alt="{{ recipe.title }}">
 
+    
     <ion-card-header>
-      <ion-card-title>{{ recipe.title }}</ion-card-title>
-    </ion-card-header>
+      <h5>Recipe name: </h5>
+      <h1>{{ recipe.title }}</h1>
+        </ion-card-header>
 
     <ion-card-content>
-      <h2>Ingredients</h2>
+      <h2>Ingredients:</h2>
       <ul>
         <li *ngFor="let ing of recipe?.extendedIngredients">
           {{ ing.original }} 
@@ -22,15 +31,30 @@
         </li>
       </ul>
 
-      <h2>Instructions</h2>
+      <h2>Instructions:</h2>
       <div *ngFor="let instr of recipe.analyzedInstructions">
         <div *ngFor="let step of instr.steps">
-          <p>Step {{ step.number }}: {{ step.step }}</p>
+          <ul>
+          <li>Step {{ step.number }}: {{ step.step }}</li>
+        </ul>
         </div>
       </div>
     </ion-card-content>
   </ion-card>
+
+
+<div class="recipe-home">
+<ion-button (click)="toggleFavourite()">
+  <!--Temporary message after clicking--> 
+  <ng-container *ngIf="addedMessage">Added to 💖</ng-container>
+  <!--Normal behaviour-->
+  <ng-container *ngIf="!addedMessage">
+  {{ isFav ? "Remove from 💖" : "Add 💖" }}
+  </ng-container>
+</ion-button>
+
+<ion-button routerLink="/home">
+  <ion-icon slot="icon-only" name="home"></ion-icon>
+</ion-button>
+</div>
 </ion-content>
-
-<ion-button routerLink="/home">🏠</ion-button>
-

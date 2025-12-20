@@ -1,11 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Settings</ion-title>
+<ion-button slot="end" fill="solid" aria-label="home" routerLink="/home">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="end" fill="solid" aria-label="favourites" routerLink="/favourites">
+      <ion-icon slot="icon-only" name="heart"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="">
   <p>Settings options will be displayed here.</p>
+
+
+  <div class="recipe-home">
+<ion-button routerLink="/home">
+  <ion-icon slot="icon-only" name="home"></ion-icon>
+</ion-button>
+</div>
 </ion-content>
 
-<ion-button routerLink="/home">🏠</ion-button>
