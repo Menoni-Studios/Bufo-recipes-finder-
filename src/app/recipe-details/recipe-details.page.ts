@@ -6,6 +6,8 @@ import { Spoonacular } from '../services/spoonacular';
 import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { FavouritesService } from '../services/favourites-service';
+import { SettingService } from '../services/setting-service';
+
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.page.html',
@@ -17,16 +19,18 @@ import { FavouritesService } from '../services/favourites-service';
     ]
 })
 
-
 export class RecipeDetailsPage implements OnInit {
 recipe: any;
 isFav = false;
 addedMessage = false;
+unitSystem: 'Metric' | 'Imperial' = 'Metric';
+
 
   constructor(
     private route: ActivatedRoute,
     private spoonacularService: Spoonacular,
-    private favService: FavouritesService
+    private favService: FavouritesService,
+    private setting: SettingService,
   ) { }
 
   ngOnInit() {
@@ -35,6 +39,12 @@ addedMessage = false;
       this.recipe = data;
       console.log('Recipe details:', this.recipe);
     });
+
+// Subscribe to changes
+    this.setting.unitSystem$.subscribe(value => {
+      this.unitSystem = value;
+    });
+
   }
 toggleFavourite() {
     if (this.isFav) {

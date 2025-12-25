@@ -5,6 +5,7 @@ import { IonIcon ,IonCard ,IonCardTitle ,IonCardHeader ,IonCardContent ,IonList 
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FavouritesService } from '../services/favourites-service';
 import { Spoonacular } from '../services/spoonacular';
+import { SettingService } from '../services/setting-service';
 
 @Component({
   selector: 'app-favourites',
@@ -19,10 +20,12 @@ import { Spoonacular } from '../services/spoonacular';
 export class FavouritesPage implements OnInit {
   favourites: any[] = [];
   recipe: any;
+  unitSystem: 'Metric' | 'Imperial' = 'Metric';
 
   constructor(private favService: FavouritesService,
     private route: ActivatedRoute,
     private spoonacularService: Spoonacular,
+    private setting: SettingService,
   ) { }
 
   ngOnInit() { 
@@ -35,6 +38,10 @@ export class FavouritesPage implements OnInit {
   
  ionViewWillEnter() {
     this.favourites = this.favService.getFavourites();
+    // Subscribe to changes
+    this.setting.unitSystem$.subscribe(value => {
+      this.unitSystem = value;
+    });
   }
 remove(recipeId: number) {
   this.favService.removeFavourite(recipeId);

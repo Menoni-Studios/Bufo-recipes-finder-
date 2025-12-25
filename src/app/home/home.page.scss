@@ -29,9 +29,11 @@
 
 .ingredient-section{
   display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  justify-content: center;
+  margin-right: 1px;
+  margin-left: 10px;
 }
 
 .search-button{

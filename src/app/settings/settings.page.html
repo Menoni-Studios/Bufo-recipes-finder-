@@ -12,8 +12,22 @@
 </ion-header>
 
 <ion-content class="">
-  <p>Settings options will be displayed here.</p>
+  <ion-card>
+        <h1>Select the Unit System Measurements:</h1>
+ <ion-list>
+    <ion-radio-group [(ngModel)]="unitSystem" (ionChange)="changeUnitSystem($event.detail.value)">
+      <ion-item>
+        <ion-label>Metric</ion-label>
+        <ion-radio slot="start" value="Metric"></ion-radio>
+      </ion-item>
 
+      <ion-item>
+        <ion-label>Imperial</ion-label>
+        <ion-radio slot="start" value="Imperial"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-card>
 
   <div class="recipe-home">
 <ion-button routerLink="/home">

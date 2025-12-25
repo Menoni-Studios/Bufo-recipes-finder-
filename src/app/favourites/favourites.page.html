@@ -30,7 +30,10 @@
       <ul>
         <li *ngFor="let ing of recipe.extendedIngredients">
           {{ ing.original }}
-          ({{ ing.measures.metric.amount }} {{ ing.measures.metric.unitLong }})
+          <!--({{ ing.measures.metric.amount }} {{ ing.measures.metric.unitLong }})-->
+           ({{ unitSystem === 'Metric' 
+      ? ing.measures.metric.amount + ' ' + ing.measures.metric.unitLong 
+      : ing.measures.us.amount + ' ' + ing.measures.us.unitLong }})
         </li>
       </ul>
 
