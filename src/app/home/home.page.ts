@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {RouterLink} from '@angular/router';
 import { Spoonacular } from '../services/spoonacular';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,14 @@ ingredients: string = '';
 recipes: any[] = [];
 
 //Spoonacular service injection.
-constructor(private recipeService: Spoonacular){}
+constructor(private recipeService: Spoonacular, private sanitizer: DomSanitizer){}
+
+//Method to strip HTML tags from text
+stripHtmlTags(html: string): string {
+  const tmp = document.createElement('DIV');
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || '';
+}
 
 //Method triggered when "Search" is clicked.
   searchRecipes() {
@@ -36,10 +44,48 @@ constructor(private recipeService: Spoonacular){}
 //Call the Spoonacular service to serch recipes by ingredients. 
   this.recipeService.searchRecipes(this.ingredients).subscribe((data:any)=>{
     //Store the results in the recipes array.
-    this.recipes = data.results; 
+    this.recipes = data.results;
+    //Strip HTML tags from summary
+    this.recipes.forEach(recipe => {
+      if (recipe.summary) {
+        recipe.summary = this.stripHtmlTags(recipe.summary);
+      }
+    });
 
  console.log('Recipes found:', this.recipes);
 });
 }
 }
 
+/*
+The {{recipe?.title}} value comes from the Spoonacular API response. Here's the flow:
+
+1️⃣User enters ingredients and clicks "SEARCH" button
+
+2️⃣searchRecipes() method is triggered in home.page.ts
+
+3️⃣API call is made via the Spoonacular service:
+
+-->this.recipeService.searchRecipes(this.ingredients).subscribe((data:any)=>{
+  this.recipes = data.results;  // Store API response
+});
+
+4️⃣API returns a response with a results array containing recipe objects
+
+5️⃣Each recipe object has properties like:
+->title - recipe name
+->image - recipe image URL
+->summary - recipe description
+->id - recipe ID
+
+6️⃣Template loops through the recipes array:
+--><ion-card *ngFor="let recipe of recipes">
+  <ion-card-header>
+    <ion-card-title>{{ recipe?.title }}</ion-card-title>
+  </ion-card-header>
+</ion-card>
+
+-->The ?. is the safe navigation operator — it means "if recipe exists, access the title property, otherwise do nothing."
+
+👀So {{recipe?.title}} displays each recipe's title property from the API response.
+*/

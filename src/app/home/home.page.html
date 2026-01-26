@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
+
+  <ion-toolbar >
+  </ion-toolbar>  
+  
   <ion-toolbar>
-    <ion-title>G00439460</ion-title>
+
+    <div class="title-with-image">
+      <ion-title>Bufo Recipe Finder</ion-title>
+      <img src="assets/bufo/bufo-noodles.gif" alt="Bufo" class="title-image">
+    </div>
 
 <!-- Favorites button in header -->
     <ion-button slot="end" fill="solid" aria-label="Favorites" routerLink="/favourites">
@@ -30,6 +38,7 @@
   </div>
 
 <!-- Ingredient Input Section -->  
+ <div class="ingredient-input-section">
   <ion-card>
   <div class="ingredient-section">
     <!-- Title -->
@@ -48,12 +57,12 @@
     </ion-searchbar>    
 </div>
 </ion-card>
-
+</div>
 <!-- Serch button-->
    <div class="search-button">
      <!-- Calls searchRecipes() method on click -->
     <ion-button (click)="searchRecipes()">
-      SEARCH
+      SEARCH🔍
     </ion-button>
 </div>
 

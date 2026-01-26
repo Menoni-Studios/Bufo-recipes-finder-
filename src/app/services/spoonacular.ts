@@ -14,7 +14,7 @@ export class Spoonacular {
   
  //Method to display recipies base on the words entered.
   searchRecipes(query: string): Observable<any> {
-    return this.http.get(`${this.apiUrl1}?query=${query}&apiKey=${this.apiKey}`);
+    return this.http.get(`${this.apiUrl1}?query=${query}&addRecipeInformation=true&apiKey=${this.apiKey}`);
   }
 //Method to fetch recipe details by ID.
 getRecipeDetails(id: number): Observable<any> {

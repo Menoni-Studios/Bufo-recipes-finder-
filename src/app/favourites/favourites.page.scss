@@ -3,6 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+    z-index: 10;
 }
 
 .recipe-home ion-button{
@@ -47,8 +49,39 @@
   width: 100%;
   display: flex;
   justify-content: end;
+  pointer-events: none;
+  z-index: 1;
 }
 .bufo-fav img{
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
+}
+
+.title-with-image {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.title-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.card-fav h1{
+  color: #f70284;
+}
+
+.card-fav h2{
+  color: #f96bb7;
+}
+
+.card-fav li{
+  color: #f70284;
+}
+
+.card-fav h5{
+  color: #f96bb7;
 }

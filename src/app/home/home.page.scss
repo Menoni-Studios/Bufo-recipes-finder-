@@ -27,6 +27,28 @@
   text-decoration: none;
 }
 
+.title-with-image {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.title-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.ingredient-input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  height: 40vh;
+  position: relative;
+}
+
 .ingredient-section{
   display: flex;
 justify-content: space-between;
@@ -47,7 +69,7 @@ justify-content: space-between;
    align-items: center;
 }
 .search-button ion-button {
-  width: 100px;   /* fixed width */
+  width: 120px;   /* fixed width */
   height: 40px;   /* fixed height */
   font-size: 14px;
 }
@@ -63,17 +85,25 @@ justify-content: space-between;
   
 }
 .bufo img{
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
+}
+
+
+ion-card-title{
+  color:#f505b5;
 }
 
 .details{
-  background-color: rgba(255, 255, 255, 0.6); 
+  --background:rgba(255, 255, 255, 0.7);
 }
 
-ion-card-title{
-  color:white;
+.details p{
+  font-size: 16px;
+  margin: 10px;
+  color: #e86daf;
 }
+
 .button-det{
   --background: #f505b5;
   --color: white;
