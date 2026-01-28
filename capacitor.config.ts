@@ -1,6 +1,6 @@
 const config = {
-  appId: 'com.recipefinder.app',
-  appName: 'RecipeFinder',
+  appId: 'com.menoni.studios.bufo.recipe.app',
+  appName: 'Bufo.Recipe.Finder',
   webDir: 'www',
   bundledWebRuntime: false
 };

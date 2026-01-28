@@ -1,4 +1,4 @@
-package com.recipefinder.app;
+package com.menoni.studios.bufo.recipe.app;
 
 import com.getcapacitor.BridgeActivity;
 
