@@ -6,4 +6,5 @@ This is an Ionic mobile application that:
 • Maintains a favourite recipes list 
 • Allows measurement units to be shown in either US or Metric.
 • Allows select dark mode.
+
 <img width="540" height="1169" alt="Screenshot1" src="https://github.com/user-attachments/assets/f464f749-826f-438a-9b24-1bc747d3d2aa" />
