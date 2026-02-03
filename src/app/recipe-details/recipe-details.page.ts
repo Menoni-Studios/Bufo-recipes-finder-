@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {IonIcon ,IonButton ,IonCard ,IonCardTitle, IonCardContent, IonCardHeader ,IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import {IonFooter ,IonIcon ,IonButton ,IonCard ,IonCardTitle, IonCardContent, IonCardHeader ,IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Spoonacular } from '../services/spoonacular';
 import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
@@ -13,7 +13,7 @@ import { SettingService } from '../services/setting-service';
   templateUrl: './recipe-details.page.html',
   styleUrls: ['./recipe-details.page.scss'],
   standalone: true,
-  imports: [ RouterLink ,IonCard ,IonCardTitle ,IonCardContent, IonCardHeader ,IonContent,
+  imports: [ IonFooter ,RouterLink ,IonCard ,IonCardTitle ,IonCardContent, IonCardHeader ,IonContent,
      IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon,
     
     ]

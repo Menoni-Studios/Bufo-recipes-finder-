@@ -25,37 +25,6 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
-
-ion-content {
-   --background: #ef3eb4;
-    --color: #f8f4f4;
-
-      position: relative;   /* Needed so child elements can be positioned */
-      overflow: hidden;     /* Prevents scrollbars from showing */
-}
-
-/* Fruit rain container */
-ion-content::before {
-  content: '';
-  position: fixed;      /* Covers the whole viewport */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Keeps background non-interactive */
-  z-index: -1;          /* Pushes behind your content */
-}
-
 /* Emoji rain effect */
 .fruit-rain {
   position: fixed;
@@ -92,6 +61,107 @@ ion-content::before {
   100% { transform: translateY(110vh); opacity: 0; }
 }
 
+/* Fruit rain container */
+ion-content::before {
+  content: '';
+  position: fixed;      /* Covers the whole viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Keeps background non-interactive */
+  z-index: -1;          /* Pushes behind your content */
+}
+
+
+
+//---------------App Theme Configuration---------------------
+
+/* Light mode (default) - use body selector */
+body {
+  ion-content {
+    --background: #ef3eb4;
+    --color: #f8f4f4;
+  }
+
+  ion-toolbar {
+    --background: #f746c2;
+    --color: #f1eaea;
+  }
+
+  ion-button {
+    --color: #f704ca;
+    --background: #facff3;
+      font-weight: 600;
+  }
+
+ion-button:hover {
+  transform: scale(1.1);   // slightly bigger 
+  transition: transform 0.2s ease-in-out; // smooth animation
+}
+
+  ion-header {
+    background: #f746c2;
+  }
+
+  ion-footer {
+    background: #f746c2;
+  }
+
+  ion-scroll{
+    --background: #ef3eb4;
+  }
+
+  .ingredient-section {
+    background-color: white;
+  }
+
+  .ingredient-section h4 {
+    color: rgb(242, 6, 242);
+  }
+}
+/* Dark mode - use body.dark selector */
+body.dark {
+  ion-content {
+    --background: #1a1a1a;
+    --color: #ffffff;
+  }
+
+  ion-toolbar {
+    --background: #2d2d2d;
+    --color: #ffffff;
+  }
+
+  ion-button {
+    --color: #f414cb;
+    --background: #4c4848;
+  }
+
+  ion-header {
+    background: #2d2d2d;
+  }
+
+  ion-footer {
+    background: #2d2d2d;
+  }
+
+  .ingredient-section {
+    background-color:#4c4848
+  }
+
+  .ingredient-section h4 {
+    color: #f593d4;
+  }
+}
+
+/*
+ion-content {
+--background: #ef3eb4;
+    --color: #f8f4f4;
+
+      position: relative;   // Needed so child elements can be positioned
+      overflow: hidden;     // Prevents scrollbars from showing
+}
 ion-toolbar {
   --background: #f746c2; 
   --color: #f1eaea;
@@ -102,26 +172,96 @@ ion-button{
     --background: #f7f5f6;
 }
 ion-button:hover {
-  transform: scale(1.1);   /* slightly bigger */
-  transition: transform 0.2s ease-in-out; /* smooth animation */
+  transform: scale(1.1);   // slightly bigger 
+  transition: transform 0.2s ease-in-out; // smooth animation
 }
 
 ion-content ion-button {
-  //--background: #f9f8f7;  /* orange for content buttons */
+  --background: #f7f5f6;
   --color: #f414cb;
   font-weight: 600;
 }
 
 ion-toolbar ion-button:hover {
-  transform: scale(1.1);   /* bigger scale for toolbar buttons */
+  transform: scale(1.1);   //bigger scale for toolbar buttons 
   transition: transform 0.2s ease-in-out;
 }
 
 ion-content ion-button:hover {
-  transform: scale(1.03);  /* smaller scale for content buttons */
+  transform: scale(1.03);  // smaller scale for content buttons 
   transition: transform 0.2s ease-in-out;
 }
 
-ion-header {
-  padding-top: env(safe-area-inset-top);
+*/
+
+
+//------------ Enhanced Safe Area Configuration---------------
+:root {
+  --ion-safe-area-top: env(safe-area-inset-top, 0px);
+  --ion-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --ion-safe-area-left: env(safe-area-inset-left, 0px);
+  --ion-safe-area-right: env(safe-area-inset-right, 0px);
+  
+  /* Navigation bar specific variables for conditional adjustments */
+  --navigation-bar-height: var(--ion-safe-area-bottom);
+  --compact-navigation: 16px;
+  --standard-navigation: 30px;
+  --large-navigation: 24px;
+  --tablet-navigation: 28px;
 }
+
+
+/* Device-specific adjustments based on detected device type */
+.plt-android.android-studio-emulator {
+  --navigation-bar-height: var(--standard-navigation);
+}
+
+.plt-android.small-phone {
+  --navigation-bar-height: var(--compact-navigation);
+}
+
+.plt-android.average-phone {
+  --navigation-bar-height: var(--standard-navigation);
+}
+
+.plt-android.large-phone {
+  --navigation-bar-height: var(--large-navigation);
+}
+
+.plt-android.tablet {
+  --navigation-bar-height: var(--tablet-navigation);
+}
+
+/* Enhanced header and footer safe areas */
+ion-header {
+  padding-top: var(--ion-safe-area-top);
+  box-sizing: border-box;
+  background: #f746c2;
+}
+
+ion-toolbar {
+  /* Ensure toolbar respects the header padding */
+  min-height: calc(var(--ion-toolbar-height, 30px) + var(--ion-safe-area-top, 0px));
+  background: var(--ion-toolbar-background);
+  background: #f746c2;
+}
+
+ion-footer {
+  padding-bottom: var(--ion-safe-area-bottom);
+  background: #f746c2;
+  min-height: calc(var(--ion-safe-area-bottom, 0px) + 10px);
+}
+
+/* Content area safe areas */
+ion-content {
+  --padding-top: var(--ion-safe-area-top);
+  --padding-bottom: var(--ion-safe-area-bottom);
+  --padding-start: var(--ion-safe-area-left);
+  --padding-end: var(--ion-safe-area-right);
+}
+
+/* Global fix for fixed bottom elements */
+.fixed-bottom-element {
+  bottom: calc(var(--ion-safe-area-bottom, 0px) + 0px) !important;
+}
+

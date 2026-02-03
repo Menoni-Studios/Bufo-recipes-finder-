@@ -1,8 +1,5 @@
 <ion-header [translucent]="true">
 
-  <ion-toolbar >
-    </ion-toolbar>
-
   <ion-toolbar>
     <ion-title>Recipe Details</ion-title>
     <!-- Favorites button in header -->
@@ -79,10 +76,10 @@
       <!-- Button triggers toggleFavourite() -->
 <ion-button (click)="toggleFavourite()">
       <!--Temporary message after clicking--> 
-  <ng-container *ngIf="addedMessage">Added to 💖</ng-container>
+  <ng-container *ngIf="addedMessage">Added </ng-container>
   <!--Normal behaviour: show Add/Remove depending on isFav-->
   <ng-container *ngIf="!addedMessage">
-  {{ isFav ? "Remove from 💖" : "Add 💖" }}
+  {{ isFav ? "Remove from 💗" : "Add 💗" }}
   </ng-container>
 </ion-button>
 
@@ -91,3 +88,8 @@
 </ion-button>
 </div>
 </ion-content>
+
+<ion-footer>
+  <div class="bufo">  
+    </div>
+</ion-footer>

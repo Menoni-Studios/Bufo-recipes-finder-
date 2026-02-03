@@ -1,3 +1,21 @@
+
+
+.bufo{
+  position: fixed;
+  bottom: calc(var(--ion-safe-area-bottom, 0px) + 11px);
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.bufo img{
+  width: 100px;
+  height: 100px;
+}
+
 .recipe-home {
     //background-color:#f782d4;
     display: flex;
@@ -8,32 +26,34 @@
 .recipe-home ion-button{
     width: 100px;
     height: 40px;
-    --background: #f7f5f6;
     
 }
 
-.bufo{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  
-}
-.bufo img{
-  width: 100px;
-  height: 100px;
-}
-
 .settings {
-    --background:rgba(255, 255, 255, 0.7);
+    --background: rgba(247, 70, 193, 0.8);
 }
-
 .settings h1{
-color:#ee32f8;
+color: white;
 margin-left: 50px;
 }
+
 .label{
-    color:#ee32f8;
+    color: #f746c2;
+    font-size: larger;
+    font-weight: bold;
+    
 }
+
+.label1{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #f746c2;
+    font-size: larger;
+    font-weight: bold;
+
+}
+ion-radio-group{
+ background-color: #f746c2;
+}
+

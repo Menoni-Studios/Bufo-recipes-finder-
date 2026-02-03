@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonCardContent, IonCardTitle, IonCardHeader, IonSearchbar, IonCard, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInput } from '@ionic/angular/standalone';
+import {IonFooter ,IonCardContent, IonCardTitle, IonCardHeader, IonSearchbar, IonCard, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInput } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import {RouterLink} from '@angular/router';
 import { Spoonacular } from '../services/spoonacular';
@@ -14,7 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent,
     IonButton, IonIcon, FormsModule, IonCardHeader,
     RouterLink, IonCard, IonSearchbar, CommonModule,
-IonCardTitle, IonCardContent,
+IonCardTitle, IonCardContent, IonFooter
   ],
 })
 export class HomePage {

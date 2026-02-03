@@ -3,12 +3,12 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: calc(var(--ion-safe-area-bottom, 0px) + 20px);
 }
 
 .recipe-home ion-button{
     width: 100px;
     height: 40px;
-    //--background: #fbfafb;
 }
 .img-det{
     margin-top: 10px;
@@ -16,11 +16,11 @@
     border-radius: 10px;
 }
 .card-det{
-    --background:  rgba(255, 255, 255, 0.7);
+    --background: rgba(255, 255, 255, 0.7);
 }
 
 .card-det h5{
-    color: #f96bb7;
+  color: #f96bb7;
 }
 
 .card-det h1{

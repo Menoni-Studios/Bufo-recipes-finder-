@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Spoonacular {
-  private apiKey = '70759a4f7911402abcc53d3c51d3b759'; 
+  private apiKey = environment.spoonacularApiKey; 
   private apiUrl1 = 'https://api.spoonacular.com/recipes/complexSearch';
 
 

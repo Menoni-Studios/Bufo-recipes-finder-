@@ -1,31 +1,6 @@
-#container {
-  text-align: center;
+/* No use of formatting this file
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #e86daf;
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #e86daf;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+*/
 
 .title-with-image {
   display: flex;
@@ -47,19 +22,18 @@
   margin-top: 0;
   height: 40vh;
   position: relative;
-}
+  }
 
 .ingredient-section{
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   justify-content: center;
-  margin-right: 1px;
-  margin-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .ingredient-section h4{
-  color: #e86daf;
   font-weight: bolder;
 }
 
@@ -72,17 +46,24 @@ justify-content: space-between;
   width: 120px;   /* fixed width */
   height: 40px;   /* fixed height */
   font-size: 14px;
+  background-color: var(--ion-color-primary);
+  border-radius: 10px;
 }
 
+ion-searchbar{
+  --background: var(--ion-background-color, #f593d4);
+}
 
 .bufo{
   position: fixed;
-  bottom: 0;
+  bottom: calc(var(--ion-safe-area-bottom, 0px) + 11px);
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  
+  padding: 0px;
+  box-sizing: border-box;
+  z-index: 1;
 }
 .bufo img{
   width: 100px;
@@ -90,24 +71,23 @@ justify-content: space-between;
 }
 
 
-ion-card-title{
-  color:#f505b5;
-}
+//---Details Page Styles---
 
 .details{
-  --background:rgba(255, 255, 255, 0.7);
+  --background: rgba(255, 255, 255, 0.7);
 }
 
+.details ion-card-title{
+  color: #f505b5;
+  margin: 10px;
+}
 .details p{
   font-size: 16px;
-  margin: 10px;
-  color: #e86daf;
+  margin: 20px;
+  text-align: justify;
+  color: #f70284;
 }
 
-.button-det{
-  --background: #f505b5;
-  --color: white;
-}
 .details img{
   height: 300px;
   width: 400px;

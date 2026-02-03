@@ -1,8 +1,5 @@
 <ion-header [translucent]="true">
 
-  <ion-toolbar >
-  </ion-toolbar>
-
   <ion-toolbar>
     <ion-title>Settings⚙️</ion-title>
 <!-- Home button -->
@@ -33,28 +30,34 @@
 
   <!-- Card with settings for units settings -->
   <ion-card class="settings">
-        <h1>Select the Unit System Measurements:</h1>
- <ion-list>
+        <h1>➡️Select Unit System:</h1>
+ <ion-list class="list">
   <!-- Radio group bound to 'unitSystem' variable -->
     <!-- [(ngModel)]="unitSystem" → two-way data binding keeps selected value in sync -->
     <!-- (ionChange)="changeUnitSystem($event.detail.value)" → calls method when selection changes -->
     <ion-radio-group [(ngModel)]="unitSystem" (ionChange)="changeUnitSystem($event.detail.value)">
       <!-- Metric option -->
       <ion-item>
-        <ion-label class="label">Metric</ion-label>
+        <ion-label class="label">📐 Metric</ion-label>
         <!-- Radio button with value 'Metric' -->
         <ion-radio slot="start" value="Metric"></ion-radio>
       </ion-item>
 
       <!-- Imperial option -->
       <ion-item>
-        <ion-label class="label">Imperial</ion-label>
+        <ion-label class="label">👑 Imperial</ion-label>
         <!-- Radio button with value 'Imperial' -->
         <ion-radio slot="start" value="Imperial"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>
 </ion-card>
+
+<!-- Toggle switch bound to 'myValue' variable-->
+ <ion-item class="label1">
+    <ion-label >🌚 Dark Mode </ion-label>
+<ion-toggle [checked]="dark" (ionChange)="darkmode()"></ion-toggle>
+ </ion-item>
 
 <!-- Home button -->
   <div class="recipe-home">
@@ -63,11 +66,13 @@
 </ion-button>
 </div>
 
-<!-- Bufo images -->
+
+</ion-content>
+
+
+<ion-footer>
  <div class="bufo">
 <img src="assets/bufo/bufo-loves-rice-and-beans.png">
 <img src="assets/bufo/bufo-offers-a-piece-of-cake.png">
 </div>
-
-</ion-content>
-
+</ion-footer>
